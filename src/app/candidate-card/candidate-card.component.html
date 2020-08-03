@@ -1,0 +1,40 @@
+<mat-card class="candidate-card">
+  <mat-card-header>
+    <mat-card-title
+      >{{ candidate?.name }} ( {{ candidate?.gender }} )</mat-card-title
+    >
+    <mat-card-subtitle class="location">{{
+      candidate?.city
+    }}</mat-card-subtitle>
+  </mat-card-header>
+
+  <mat-card-content class="content">
+    <p class="status">Status: {{ candidate?.status }}</p>
+    <p class="chips">
+      <mat-chip-list
+        aria-label="Candidate count"
+        *ngFor="let skill of candidate?.skills"
+      >
+        <mat-chip>{{ skill }}</mat-chip>
+      </mat-chip-list>
+    </p>
+  </mat-card-content>
+  <mat-card-actions class="footer">
+    <button
+      mat-raised-button
+      color="primary"
+      (click)="selectRejectCandidate('selected')"
+      [disabled]="candidate.status !== 'interview'"
+    >
+      Select
+    </button>
+    <button
+      mat-raised-button
+      color="warn"
+      (click)="selectRejectCandidate('rejected')"
+      [disabled]="candidate.status !== 'interview'"
+    >
+      Reject
+    </button>
+  </mat-card-actions>
+</mat-card>

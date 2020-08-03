@@ -1,0 +1,24 @@
+.home-container {
+  background-color: #f3f3f3;
+  .search-container {
+    display: flex;
+    justify-content: flex-end;
+    margin: 10px;
+    align-items: center;
+  }
+  .card {
+    flex: 1;
+    flex-basis: 500px;
+    max-width: 500px;
+  }
+  .cards {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    margin: 0px 40px;
+
+    app-candidate-card {
+      margin: 10px;
+    }
+  }
+}

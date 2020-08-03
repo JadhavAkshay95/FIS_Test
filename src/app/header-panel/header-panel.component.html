@@ -1,0 +1,12 @@
+<p>
+  <mat-toolbar color="primary">
+    <span class="header-note">My Candidate Work Book</span>
+    <div>
+      <mat-chip-list aria-label="Candidate count">
+        <mat-chip>Total : {{ selectedCount + rejectedCount }}</mat-chip>
+        <mat-chip color="primary" class="yellow-chip">Selected : {{ selectedCount }}</mat-chip>
+        <mat-chip color="primary" class="yellow-chip">Rejected : {{ rejectedCount }}</mat-chip>
+      </mat-chip-list>
+    </div>
+  </mat-toolbar>
+</p>

@@ -1,0 +1,61 @@
+<div class="candidate-container">
+  <h2 mat-dialog-title>Add Candidate</h2>
+  <mat-dialog-content class="mat-typography">
+    <form
+      [formGroup]="candidateForm"
+      (ngSubmit)="submit()"
+      class="example-form"
+    >
+      <div class="field">
+        <mat-form-field class="example-full-width">
+          <mat-label>Name</mat-label>
+          <input matInput formControlName="name" required />
+        </mat-form-field>
+
+        <mat-error
+          *ngIf="
+            candidateForm.controls.name.touched &&
+            candidateForm.controls.name.invalid
+          "
+        >
+          <span *ngIf="candidateForm.controls.name.errors.required"
+            >This field is mandatory.</span
+          >
+        </mat-error>
+      </div>
+      <div class="field">
+        <mat-form-field class="example-full-width">
+          <mat-label>City</mat-label>
+          <input matInput formControlName="city" />
+        </mat-form-field>
+      </div>
+      <div class="field">
+        <label>Gender: </label>
+        <mat-radio-group formControlName="gender">
+          <mat-radio-button value="male">Male</mat-radio-button>
+          <mat-radio-button value="female">Female</mat-radio-button>
+        </mat-radio-group>
+      </div>
+      <div class="tech-list">
+        <mat-checkbox
+          *ngFor="let skill of skillsList"
+          formControlName="skills"
+          (change)="checkSkills($event, skill)"
+          >{{ skill }}</mat-checkbox
+        >
+      </div>
+    </form>
+  </mat-dialog-content>
+  <mat-dialog-actions align="end">
+    <button mat-button mat-dialog-close>Cancel</button>
+    <button
+      type="submit"
+      (click)="submit()"
+      mat-button
+      cdkFocusInitial
+      [disabled]="!candidateForm.valid || skillData.length === 0"
+    >
+      Save
+    </button>
+  </mat-dialog-actions>
+</div>

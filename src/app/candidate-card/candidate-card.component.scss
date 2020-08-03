@@ -1,0 +1,27 @@
+.candidate-card {
+  flex: 1;
+  .status {
+    font-weight: 500 !important;
+  }
+
+  .footer {
+    margin-top: 10px;
+  }
+  .content {
+    margin-left: 10px;
+  }
+  .mat-card-title {
+    font-weight: 400 !important;
+    text-transform: capitalize;
+  }
+  .location {
+    text-transform: capitalize;
+  }
+  .chips {
+    display: flex;
+    .mat-chip-list {
+      display: flex;
+      margin: 0px 10px 0px 0px !important;
+    }
+  }
+}
